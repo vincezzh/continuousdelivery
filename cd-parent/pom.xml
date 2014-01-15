@@ -9,6 +9,7 @@
 		<module>cd-service</module>
 		<module>cd-dao</module>
 		<module>cd-webapp</module>
+		<module>cd-webapp2</module>
 	</modules>
 	<dependencies>
 		<dependency>

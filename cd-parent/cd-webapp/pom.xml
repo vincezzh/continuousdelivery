@@ -9,6 +9,9 @@
 	<artifactId>cd-webapp</artifactId>
 	<packaging>war</packaging>
 	<name>cd-webapp</name>
+	<properties>
+		<org.apache.struts.version>2.3.16</org.apache.struts.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -18,22 +21,50 @@
 		<dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-core</artifactId>
+			<version>${org.apache.struts.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>tools</artifactId>
+					<groupId>com.sun</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-junit-plugin</artifactId>
 			<version>2.3.16</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>6.0.37</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jsp-api</artifactId>
+			<version>7.0.47</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
 		<finalName>cd-webapp</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5</version>
 				<configuration>
-					<!-- Tomcat 7 has a different manager path - text - than other versions -->
-					<url>http://localhost:8080/manager/text</url>
-					<!-- Refer to the server settings in your ~/.m2/settings.xml -->
-					<server>myTomcat</server>
-					<path>/cd-webapp</path>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
