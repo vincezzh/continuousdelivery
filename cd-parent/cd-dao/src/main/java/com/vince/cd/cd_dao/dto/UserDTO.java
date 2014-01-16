@@ -1,9 +1,9 @@
-package com.cd.view.controller.vo;
+package com.vince.cd.cd_dao.dto;
 
-public class User {
+public class UserDTO {
 	private String username;
 	private String password;
-	private int accountId;
+	private Integer accountId;
 	
 	public String getUsername() {
 		return username;
@@ -17,10 +17,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getAccountId() {
+	public Integer getAccountId() {
 		return accountId;
 	}
-	public void setAccountId(int accountId) {
+	public void setAccountId(Integer accountId) {
 		this.accountId = accountId;
 	}
 	

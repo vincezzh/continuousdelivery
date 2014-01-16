@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:root-context.xml</param-value>
+		<param-value>classpath:spring-servlet.xml</param-value>
 	</context-param>
 
 	<filter>
