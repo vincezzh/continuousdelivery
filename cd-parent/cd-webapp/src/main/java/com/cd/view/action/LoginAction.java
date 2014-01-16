@@ -4,6 +4,7 @@ import com.cd.view.action.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport {
+	private static final long serialVersionUID = 9095941596334253909L;
 	private User user;
 	private String message;
 	
