@@ -18,23 +18,25 @@ public class BankDAOImpl implements BankDAO {
     }
     
 	@Override
-	public double deposit(double money) throws Exception {
-//		String sql = "insert into products (id, price, description) values (?,?,?)";  
-//        jdbcTemplate.update(sql, new Object[] { prod.getId(), prod.getPrice(),  
-//                prod.getDescription() });
-		return 0;
+	public double deposit(int accountNumber, double money) throws Exception {
+		double amount = getBalance(accountNumber) + money;
+		String sql = "UPDATE zaccount SET amount=? WHERE id=?";  
+        jdbcTemplate.update(sql, new Object[] { amount, accountNumber });
+		return getBalance(accountNumber);
 	}
 
 	@Override
-	public double withdraw(double money) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public double withdraw(int accountNumber, double money) throws Exception {
+		double amount = getBalance(accountNumber) - money;
+		String sql = "UPDATE zaccount SET amount=? WHERE id=?";  
+        jdbcTemplate.update(sql, new Object[] { amount, accountNumber });
+		return getBalance(accountNumber);
 	}
 
 	@Override
 	public double getBalance(int accountNumber) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "select amount from zaccount where id=?";
+		return jdbcTemplate.queryForObject(sql, new Object[] { accountNumber }, Double.class);
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

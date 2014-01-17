@@ -1,6 +1,6 @@
 package com.cd.view.action.vo;
 
-public class User {
+public class UserVO {
 	private String username;
 	private String password;
 	private int accountId;

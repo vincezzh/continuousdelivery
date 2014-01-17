@@ -1,19 +1,27 @@
 package com.cd.view.action;
 
-import org.apache.struts2.StrutsTestCase;
+import static org.junit.Assert.assertEquals;
+
+import org.apache.struts2.StrutsSpringJUnit4TestCase;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.opensymphony.xwork2.ActionProxy;
 
-public class LoginActionTest extends StrutsTestCase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:spring-struts.xml" })
+public class LoginActionTest extends StrutsSpringJUnit4TestCase<LoginAction> {
+
 	@Test
-    public void testExecute() throws Exception {
-        request.setParameter("user.username", "vince");
-        request.setParameter("user.password", "123");
-        ActionProxy proxy = getActionProxy("/login.action");
-        LoginAction loginAction = (LoginAction)proxy.getAction();
-        String result = proxy.execute();
-        assertEquals("success", result);
-        assertEquals("vince login Successful!", loginAction.getMessage());
-    }
+	public void testExecute() throws Exception {
+		request.setParameter("user.username", "cdtester");
+		request.setParameter("user.password", "abc123");
+		ActionProxy proxy = getActionProxy("/login.action");
+		LoginAction loginAction = (LoginAction) proxy.getAction();
+		String result = proxy.execute();
+		assertEquals("success", result);
+		assertEquals("cdtester login Successful", loginAction.getMessage());
+	}
 }

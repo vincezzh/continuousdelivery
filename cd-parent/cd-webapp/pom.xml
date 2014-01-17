@@ -11,6 +11,7 @@
 	<name>cd-webapp</name>
 	<properties>
 		<org.apache.struts.version>2.3.16</org.apache.struts.version>
+		<org.springframework.version>3.2.6.RELEASE</org.springframework.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -32,20 +33,37 @@
 		<dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-junit-plugin</artifactId>
-			<version>2.3.16</version>
-			<scope>test</scope>
+			<version>${org.apache.struts.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>${org.apache.struts.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>6.0.37</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jsp-api</artifactId>
 			<version>7.0.47</version>
-			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
 		</dependency>
 	</dependencies>
 	<build>

@@ -10,7 +10,6 @@
 		<module>cd-dao</module>
 		<module>cd-webapp</module>
 		<module>cd-webapp2</module>
-		<module>cd-dbdeploy</module>
 	</modules>
 	<dependencies>
 		<dependency>

@@ -30,26 +30,11 @@ public class LoginControllerTest {
 	}
 
 	@Test
-	public void login1() throws Exception {
-		mockMvc.perform((post("/login.do")))
-				.andExpect(status().isOk())
-				.andDo(print());
-	}
-
-	@Test
-	public void login2() throws Exception {
-		mockMvc.perform((post("/login.do")))
-				.andExpect(status().isOk())
-				.andDo(print())
-				.andExpect(model().attributeExists("message"));
-	}
-
-	@Test
 	public void login3() throws Exception {
-		mockMvc.perform((post("/login.do").param("username", "vince").param("password", "123")))
+		mockMvc.perform((post("/login.do").param("username", "cdtester").param("password", "abc123")))
 				.andExpect(status().isOk())
 				.andDo(print())
-				.andExpect(model().attribute("message", "vince login Successful"));
+				.andExpect(model().attribute("message", "cdtester login Successful"));
 	}
 
 }

@@ -1,18 +1,25 @@
 package com.cd.view.action;
 
-import com.cd.view.action.vo.User;
+import com.cd.view.action.vo.UserVO;
+import com.cd.view.maker.VOMaker;
 import com.opensymphony.xwork2.ActionSupport;
+import com.vince.cd.service.LoginService;
 
 public class LoginAction extends ActionSupport {
 	private static final long serialVersionUID = 9095941596334253909L;
-	private User user;
+	private UserVO user;
 	private String message;
+	private LoginService loginService;
+
+	public void setLoginService(LoginService loginService) {
+		this.loginService = loginService;
+	}
 	
-	public User getUser() {
+	public UserVO getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserVO user) {
 		this.user = user;
 	}
 
@@ -26,7 +33,8 @@ public class LoginAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception{
-		message = user.getUsername() + " login Successful!";
+		UserVO finalUser = VOMaker.populateVO(loginService.login(VOMaker.populateModel(user)));
+		message = finalUser.getUsername() + " login Successful";
 		return SUCCESS;
 	}
 }
