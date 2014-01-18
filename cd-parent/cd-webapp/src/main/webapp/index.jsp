@@ -6,8 +6,8 @@
 </head>
 <body>
 <s:form action="login">
-	Username123: <s:textfield name="user.username"/>
-	Password123: <s:textfield name="user.password"/>
+	Username: <s:textfield name="user.username"/>
+	Password: <s:textfield name="user.password"/>
 	<s:property value="message"/>
 	<s:submit value="Login"/>
 </s:form>
