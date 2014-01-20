@@ -1,0 +1,183 @@
+Name: maven-dbdeploy-plugin
+Description: maven plugin to invoke dbdeploy
+Group Id: com.dbdeploy
+Artifact Id: maven-dbdeploy-plugin
+Version: 3.0M3
+Goal Prefix: dbdeploy
+
+This plugin has 3 goals:
+
+dbdeploy:change-script
+  Description: Maven goal for creating a new timestamped dbdeploy change
+    script.
+  Implementation: com.dbdeploy.mojo.CreateChangeScriptMojo
+  Language: java
+
+  Available parameters:
+
+    name (Default: new_change_script)
+      Required: true
+      User property: dbdeploy.script.name
+      Name suffix for the file that will be created (e.g.
+      add_email_to_user_table).
+
+    scriptdirectory (Default: ${project.src.directory}/main/sql)
+      Required: true
+      User property: dbdeploy.scriptdirectory
+      Directory where change scripts reside.
+
+dbdeploy:db-scripts
+  Description: Maven goal for creating the apply and undo scripts.
+  Implementation: com.dbdeploy.mojo.CreateDatabaseScriptsMojo
+  Language: java
+
+  Available parameters:
+
+    changeLogTableName
+      User property: dbdeploy.changeLogTableName
+      The name of the changelog table to use. Useful if you need to separate
+      DDL and DML when deploying to replicated environments. If not supplied
+      defaults to 'changelog'
+
+    dbms
+      Required: true
+      String representing our DBMS (e.g. mysql, ora)
+
+    delimiter
+      User property: dbdeploy.delimiter
+      Delimiter to use to separate scripts into statements, if dbdeploy will
+      apply the scripts for you i.e. you haven't specified outputfile. Default
+      ;
+
+    delimiterType
+      User property: dbdeploy.delimiterType
+      Either normal: split on delimiter wherever it occurs or row only split on
+      delimiter if it features on a line by itself. Default normal.
+
+    driver
+      Required: true
+      User property: dbdeploy.driver
+      Specifies the jdbc driver.
+
+    encoding (Default: ${project.build.sourceEncoding})
+      User property: dbdeploy.encoding
+      Encoding to use for change scripts and output files.
+
+    lastChangeToApply
+      User property: dbdeploy.lastChange
+      The highest numbered delta script to apply.
+
+    lineEnding
+      User property: dbdeploy.lineEnding
+      Line ending to separate indiviual statement lines when applying directly
+      to the database. Can be platform (the default line ending for the current
+      platform), cr, crlf or lf. Default platform.
+
+    outputfile
+      Required: true
+      The name of the script that dbdeploy will output. Include a full or
+      relative path.
+
+    password
+      User property: dbdeploy.password
+      The password of the dbms user who has permissions to select from the
+      schema version table.
+
+    scriptdirectory (Default: ${project.src.directory}/main/sql)
+      Required: true
+      User property: dbdeploy.scriptdirectory
+      Full or relative path to the directory containing the delta scripts.
+
+    templateDirectory
+      Directory for your template scripts, if not using built-in
+
+    undoOutputfile
+      Required: true
+      The name of the undo script that dbdeploy will output. Include a full or
+      relative path.
+
+    url
+      Required: true
+      User property: dbdeploy.url
+      Specifies the url of the database that the deltas are to be applied to.
+
+    userid
+      Required: true
+      User property: dbdeploy.userid
+      The ID of a dbms user who has permissions to select from the schema
+      version table.
+
+dbdeploy:update
+  Description: Maven goal for applying dbdeploy change scripts directly to
+    the database.
+  Implementation: com.dbdeploy.mojo.UpdateDatabaseMojo
+  Language: java
+
+  Available parameters:
+
+    changeLogTableName
+      User property: dbdeploy.changeLogTableName
+      The name of the changelog table to use. Useful if you need to separate
+      DDL and DML when deploying to replicated environments. If not supplied
+      defaults to 'changelog'
+
+    delimiter
+      User property: dbdeploy.delimiter
+      Delimiter to use to separate scripts into statements, if dbdeploy will
+      apply the scripts for you i.e. you haven't specified outputfile. Default
+      ;
+
+    delimiterType
+      User property: dbdeploy.delimiterType
+      Either normal: split on delimiter wherever it occurs or row only split on
+      delimiter if it features on a line by itself. Default normal.
+
+    driver
+      Required: true
+      User property: dbdeploy.driver
+      Specifies the jdbc driver.
+
+    encoding (Default: ${project.build.sourceEncoding})
+      User property: dbdeploy.encoding
+      Encoding to use for change scripts and output files.
+
+    lastChangeToApply
+      User property: dbdeploy.lastChange
+      The highest numbered delta script to apply.
+
+    lineEnding
+      User property: dbdeploy.lineEnding
+      Line ending to separate indiviual statement lines when applying directly
+      to the database. Can be platform (the default line ending for the current
+      platform), cr, crlf or lf. Default platform.
+
+    password
+      User property: dbdeploy.password
+      The password of the dbms user who has permissions to select from the
+      schema version table.
+
+    scriptdirectory (Default: ${project.src.directory}/main/sql)
+      Required: true
+      User property: dbdeploy.scriptdirectory
+      Full or relative path to the directory containing the delta scripts.
+
+    url
+      Required: true
+      User property: dbdeploy.url
+      Specifies the url of the database that the deltas are to be applied to.
+
+    userid
+      Required: true
+      User property: dbdeploy.userid
+      The ID of a dbms user who has permissions to select from the schema
+      version table.
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.995s
+[INFO] Finished at: Mon Jan 20 11:00:12 EST 2014
+[INFO] Final Memory: 5M/15M
+[INFO] ------------------------------------------------------------------------
+C:\zzh\continuous_delivery\workspace\continuousdelivery\cd-parent\cd-dbdeploy>

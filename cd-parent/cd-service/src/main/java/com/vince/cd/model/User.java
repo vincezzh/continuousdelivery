@@ -1,5 +1,7 @@
 package com.vince.cd.model;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 public class User {
 	private String username;
 	private String password;
@@ -24,4 +26,13 @@ public class User {
 		this.accountId = accountId;
 	}
 	
+	@Override
+    public boolean equals(Object obj) {
+		if (obj != null && obj instanceof User) {
+            User user = (User) obj;
+            return new EqualsBuilder().append(getUsername(), user.getUsername())
+            							.isEquals();
+        }
+        return false;
+    }
 }

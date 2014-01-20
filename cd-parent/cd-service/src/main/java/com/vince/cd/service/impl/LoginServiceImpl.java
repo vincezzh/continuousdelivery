@@ -17,4 +17,9 @@ public class LoginServiceImpl implements LoginService {
 		return ModelMaker.populateModel(bankDAO.login(ModelMaker.populateDTO(user)));
 	}
 
+	@Override
+	public double getBalance(int accountNumber) throws Exception {
+		return bankDAO.getBalance(accountNumber);
+	}
+
 }

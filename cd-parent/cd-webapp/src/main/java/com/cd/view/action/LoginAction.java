@@ -31,10 +31,15 @@ public class LoginAction extends ActionSupport {
 		this.message = message;
 	}
 
-	@Override
-	public String execute() throws Exception{
+	public String login() throws Exception {
 		UserVO finalUser = VOMaker.populateVO(loginService.login(VOMaker.populateModel(user)));
 		message = finalUser.getUsername() + " login Successful";
+		return SUCCESS;
+	}
+	
+	public String getBalance() throws Exception {
+		double amount = loginService.getBalance(user.getAccountId());
+		message = "$" + amount;
 		return SUCCESS;
 	}
 }

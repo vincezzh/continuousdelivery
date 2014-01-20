@@ -11,6 +11,7 @@
 	<name>cd-service</name>
 	<properties>
 		<org.springframework.version>3.2.6.RELEASE</org.springframework.version>
+		<org.apache.commons.version>3.1</org.apache.commons.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -22,6 +23,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${org.apache.commons.version}</version>
 		</dependency>
 	</dependencies>
 </project>

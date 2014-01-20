@@ -36,6 +36,8 @@
 							<dbms>mysql</dbms>
 							<delimiter>;</delimiter>
 							<delimiterType>row</delimiterType>
+							<outputfile>outputfile.sql</outputfile>
+							<undoOutputfile>undoOutputfile.sql</undoOutputfile>
 						</configuration>
 						<inherited>false</inherited>
 						<dependencies>
@@ -73,6 +75,8 @@
 					<dbms>mysql</dbms>
 					<delimiter>;</delimiter>
 					<delimiterType>row</delimiterType>
+					<outputfile>outputfile.sql</outputfile>
+					<undoOutputfile>undoOutputfile.sql</undoOutputfile>
 				</configuration>
 				<inherited>false</inherited>
 				<dependencies>
