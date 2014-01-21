@@ -35,7 +35,11 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
     
-	<bean id="bankDAO" class="com.vince.cd.cd_dao.dao.impl.BankDAOImpl" >
+	<bean id="userDAO" class="com.vince.cd.cd_dao.dao.impl.UserDAOImpl" >
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="accountDAO" class="com.vince.cd.cd_dao.dao.impl.AccountDAOImpl" >
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 </beans>

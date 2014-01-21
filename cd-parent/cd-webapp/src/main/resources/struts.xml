@@ -4,11 +4,11 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="cd" extends="struts-default">
-		<action name="login" class="loginAction" method="login">
+		<action name="login" class="userAction" method="login">
 			<result name="success">/index.jsp</result>
 		</action>
 		
-		<action name="getBalance" class="loginAction" method="getBalance">
+		<action name="getBalance" class="userAction" method="getBalance">
 			<result name="success">/index.jsp</result>
 		</action>
 	</package>

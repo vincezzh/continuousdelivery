@@ -19,7 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = { "classpath:spring-servlet.xml" })
-public class LoginControllerTest {
+public class UserControllerTest {
 	@Autowired
 	private WebApplicationContext wac;
 	private MockMvc mockMvc;
@@ -30,7 +30,7 @@ public class LoginControllerTest {
 	}
 
 	@Test
-	public void login3() throws Exception {
+	public void login() throws Exception {
 		mockMvc.perform((post("/login.do").param("username", "cdtester").param("password", "abc123")))
 				.andExpect(status().isOk())
 				.andDo(print())

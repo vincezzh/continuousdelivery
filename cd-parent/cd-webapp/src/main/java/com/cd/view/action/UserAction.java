@@ -3,16 +3,16 @@ package com.cd.view.action;
 import com.cd.view.action.vo.UserVO;
 import com.cd.view.maker.VOMaker;
 import com.opensymphony.xwork2.ActionSupport;
-import com.vince.cd.service.LoginService;
+import com.vince.cd.service.SystemService;
 
-public class LoginAction extends ActionSupport {
+public class UserAction extends ActionSupport {
 	private static final long serialVersionUID = 9095941596334253909L;
 	private UserVO user;
 	private String message;
-	private LoginService loginService;
+	private SystemService systemService;
 
-	public void setLoginService(LoginService loginService) {
-		this.loginService = loginService;
+	public void setSystemService(SystemService systemService) {
+		this.systemService = systemService;
 	}
 	
 	public UserVO getUser() {
@@ -32,13 +32,13 @@ public class LoginAction extends ActionSupport {
 	}
 
 	public String login() throws Exception {
-		UserVO finalUser = VOMaker.populateVO(loginService.login(VOMaker.populateModel(user)));
+		UserVO finalUser = VOMaker.populateVO(systemService.login(VOMaker.populateModel(user)));
 		message = finalUser.getUsername() + " login Successful";
 		return SUCCESS;
 	}
 	
 	public String getBalance() throws Exception {
-		double amount = loginService.getBalance(user.getAccountId());
+		double amount = systemService.getBalance(user.getAccountId());
 		message = "$" + amount;
 		return SUCCESS;
 	}
