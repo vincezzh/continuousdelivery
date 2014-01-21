@@ -1,5 +1,7 @@
 package com.vince.cd.cd_dao.dto;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 public class AccountDTO {
 	private Integer id;
 	private Double amount;
@@ -17,4 +19,13 @@ public class AccountDTO {
 		this.amount = amount;
 	}
 	
+	@Override
+    public boolean equals(Object obj) {
+		if (obj != null && obj instanceof AccountDTO) {
+			AccountDTO user = (AccountDTO) obj;
+            return new EqualsBuilder().append(getId(), user.getId())
+            							.isEquals();
+        }
+        return false;
+    }
 }

@@ -30,20 +30,17 @@ public class SystemServiceImpl implements SystemService {
 
 	@Override
 	public double deposit(int accountNumber, int amount) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return accountDAO.deposit(accountNumber, amount);
 	}
 
 	@Override
 	public double withdraw(int accountNumber, int amount) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return accountDAO.withdraw(accountNumber, amount);
 	}
 
 	@Override
 	public User getUserDetail(String username) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return ModelMaker.populateModel(userDAO.getDetail(username));
 	}
 
 }

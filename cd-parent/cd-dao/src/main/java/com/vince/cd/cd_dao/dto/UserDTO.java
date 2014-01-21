@@ -1,5 +1,8 @@
 package com.vince.cd.cd_dao.dto;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
+
 public class UserDTO {
 	private String username;
 	private String password;
@@ -24,4 +27,13 @@ public class UserDTO {
 		this.account = account;
 	}
 	
+	@Override
+    public boolean equals(Object obj) {
+		if (obj != null && obj instanceof UserDTO) {
+			UserDTO user = (UserDTO) obj;
+            return new EqualsBuilder().append(getUsername(), user.getUsername())
+            							.isEquals();
+        }
+        return false;
+    }
 }
