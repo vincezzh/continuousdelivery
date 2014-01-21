@@ -38,7 +38,7 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String getBalance() throws Exception {
-		double amount = systemService.getBalance(user.getAccountId());
+		double amount = systemService.getBalance(user.getAccount().getId());
 		message = "$" + amount;
 		return SUCCESS;
 	}

@@ -5,7 +5,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 public class User {
 	private String username;
 	private String password;
-	private Integer accountId;
+	private Account account;
 	
 	public String getUsername() {
 		return username;
@@ -19,11 +19,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getAccountId() {
-		return accountId;
+	public Account getAccount() {
+		return account;
 	}
-	public void setAccountId(Integer accountId) {
-		this.accountId = accountId;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 	
 	@Override

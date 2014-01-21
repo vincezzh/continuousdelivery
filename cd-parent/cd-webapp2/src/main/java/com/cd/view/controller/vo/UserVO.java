@@ -3,8 +3,7 @@ package com.cd.view.controller.vo;
 public class UserVO {
 	private String username;
 	private String password;
-	private int accountId;
-	
+	private AccountVO account;
 	public String getUsername() {
 		return username;
 	}
@@ -17,11 +16,11 @@ public class UserVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getAccountId() {
-		return accountId;
+	public AccountVO getAccount() {
+		return account;
 	}
-	public void setAccountId(int accountId) {
-		this.accountId = accountId;
+	public void setAccount(AccountVO account) {
+		this.account = account;
 	}
-	
+
 }

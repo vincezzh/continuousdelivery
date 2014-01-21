@@ -26,6 +26,15 @@ public class UserDAOImplTest {
 		userDTO.setUsername("cdtester");
 		userDTO.setPassword("abc123");
 		UserDTO finalUserDTO = userDAO.login(userDTO);
-		assertEquals(12345, finalUserDTO.getAccountId().intValue());
+		assertEquals("cdtester", finalUserDTO.getUsername());
+		assertEquals(12345, finalUserDTO.getAccount().getId().intValue());
+	}
+	
+	@Test
+	public void getUserDetail() throws Exception {
+		UserDTO userDetail = userDAO.getDetail("cdtester");
+		assertEquals("cdtester", userDetail.getUsername());
+		assertEquals(12345, userDetail.getAccount().getId().intValue());
+		assertEquals(0, Double.valueOf(userDetail.getAccount().getAmount()).compareTo(100.0));
 	}
 }

@@ -3,7 +3,7 @@ package com.vince.cd.cd_dao.dto;
 public class UserDTO {
 	private String username;
 	private String password;
-	private Integer accountId;
+	private AccountDTO account;
 	
 	public String getUsername() {
 		return username;
@@ -17,11 +17,11 @@ public class UserDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Integer getAccountId() {
-		return accountId;
+	public AccountDTO getAccount() {
+		return account;
 	}
-	public void setAccountId(Integer accountId) {
-		this.accountId = accountId;
+	public void setAccount(AccountDTO account) {
+		this.account = account;
 	}
 	
 }

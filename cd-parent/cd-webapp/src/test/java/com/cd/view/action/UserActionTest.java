@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.opensymphony.xwork2.ActionProxy;
+import com.vince.cd.model.Account;
 import com.vince.cd.model.User;
 import com.vince.cd.service.SystemService;
 
@@ -29,19 +30,22 @@ public class UserActionTest extends StrutsSpringJUnit4TestCase<UserAction> {
 		userParam.setPassword("abc123");
 		User userReturn = new User();
 		userReturn.setUsername("cdtester");
-		userReturn.setAccountId(12345);
+		Account account = new Account();
+		account.setId(12345);
+		userReturn.setAccount(account);
 		SystemService systemService = Mockito.mock(SystemService.class);
 		Mockito.when(systemService.login(userParam)).thenReturn(userReturn);
 		userAction.setSystemService(systemService);
 		
 		String result = proxy.execute();
 		assertEquals("success", result);
+		assertEquals(12345, userReturn.getAccount().getId().intValue());
 		assertEquals("cdtester login Successful", userAction.getMessage());
 	}
 	
 	@Test
 	public void getBalance() throws Exception {
-		request.setParameter("user.accountId", "12345");
+		request.setParameter("user.account.id", "12345");
 		ActionProxy proxy = getActionProxy("/getBalance.action");
 		UserAction userAction = (UserAction) proxy.getAction();
 
