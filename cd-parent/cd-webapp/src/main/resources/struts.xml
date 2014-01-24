@@ -11,5 +11,17 @@
 		<action name="getBalance" class="userAction" method="getBalance">
 			<result name="success">/index.jsp</result>
 		</action>
+		
+		<action name="deposit" class="accountAction" method="deposit">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="withdraw" class="accountAction" method="withdraw">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="getDetail" class="accountAction" method="getDetail">
+			<result name="success">/index.jsp</result>
+		</action>
 	</package>
 </struts>  

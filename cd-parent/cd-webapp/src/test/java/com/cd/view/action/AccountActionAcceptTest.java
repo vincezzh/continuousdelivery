@@ -6,6 +6,6 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features/user")
-public class UserActionAcceptTest {
+@CucumberOptions(features = "classpath:features/account")
+public class AccountActionAcceptTest {
 }

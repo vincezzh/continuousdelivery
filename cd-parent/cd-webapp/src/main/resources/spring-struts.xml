@@ -13,5 +13,9 @@
 	
 	<bean id="userAction" class="com.cd.view.action.UserAction" scope="prototype">
         <property name="systemService" ref="systemService" />
-    </bean> 
+    </bean>
+    
+    <bean id="accountAction" class="com.cd.view.action.AccountAction" scope="prototype">
+        <property name="systemService" ref="systemService" />
+    </bean>
 </beans>

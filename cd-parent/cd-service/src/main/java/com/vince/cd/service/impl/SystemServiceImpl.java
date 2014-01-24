@@ -29,12 +29,12 @@ public class SystemServiceImpl implements SystemService {
 	}
 
 	@Override
-	public double deposit(int accountNumber, int amount) throws Exception {
+	public double deposit(int accountNumber, double amount) throws Exception {
 		return accountDAO.deposit(accountNumber, amount);
 	}
 
 	@Override
-	public double withdraw(int accountNumber, int amount) throws Exception {
+	public double withdraw(int accountNumber, double amount) throws Exception {
 		return accountDAO.withdraw(accountNumber, amount);
 	}
 
