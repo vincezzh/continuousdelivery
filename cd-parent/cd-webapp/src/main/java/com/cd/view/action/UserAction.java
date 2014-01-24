@@ -32,8 +32,8 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String login() throws Exception {
-		UserVO finalUser = VOMaker.populateVO(systemService.login(VOMaker.populateModel(user)));
-		message = finalUser.getUsername() + " login Successful";
+		user = VOMaker.populateVO(systemService.login(VOMaker.populateModel(user)));
+		message = user.getUsername() + " login Successful";
 		return SUCCESS;
 	}
 	
