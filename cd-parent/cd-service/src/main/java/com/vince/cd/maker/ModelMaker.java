@@ -7,6 +7,9 @@ import com.vince.cd.model.User;
 
 public class ModelMaker {
 	public static User populateModel(UserDTO dto) {
+		if(dto == null)
+			return null;
+		
 		User model = new User();
 		model.setPassword(dto.getPassword());
 		model.setUsername(dto.getUsername());
@@ -32,6 +35,9 @@ public class ModelMaker {
 	}
 	
 	public static Account populateModel(AccountDTO dto) {
+		if(dto == null)
+			return null;
+		
 		Account model = new Account();
 		model.setId(dto.getId());
 		model.setAmount(dto.getAmount());

@@ -30,7 +30,11 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public double getBalance(int accountNumber) throws Exception {
 		String sql = "select amount from zaccount where id=?";
-		return jdbcTemplate.queryForObject(sql, new Object[] { accountNumber }, Double.class);
+		Double amount = 0.0;
+		try {
+			amount = jdbcTemplate.queryForObject(sql, new Object[] { accountNumber }, Double.class);
+		}catch(Exception e) {}
+		return amount;
 	}
 
 }

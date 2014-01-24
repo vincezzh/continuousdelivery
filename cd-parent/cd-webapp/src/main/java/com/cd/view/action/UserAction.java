@@ -1,5 +1,7 @@
 package com.cd.view.action;
 
+import java.math.BigDecimal;
+
 import com.cd.view.action.vo.UserVO;
 import com.cd.view.maker.VOMaker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -33,13 +35,15 @@ public class UserAction extends ActionSupport {
 
 	public String login() throws Exception {
 		user = VOMaker.populateVO(systemService.login(VOMaker.populateModel(user)));
-		message = user.getUsername() + " login Successful";
+		if(user != null)
+			message = user.getUsername() + " login Successful";
 		return SUCCESS;
 	}
 	
 	public String getBalance() throws Exception {
-		double amount = systemService.getBalance(user.getAccount().getId());
-		message = "$" + amount;
+		user.getAccount().setAmount(systemService.getBalance(user.getAccount().getId()));
+		
+		message = "$" + new BigDecimal(user.getAccount().getAmount()).setScale(2).toString();
 		return SUCCESS;
 	}
 }

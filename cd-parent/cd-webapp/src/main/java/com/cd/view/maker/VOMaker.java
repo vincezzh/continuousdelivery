@@ -16,6 +16,9 @@ public class VOMaker {
 	}
 	
 	public static UserVO populateVO(User model) {
+		if(model == null)
+			return null;
+		
 		UserVO vo = new UserVO();
 		vo.setPassword(model.getPassword());
 		vo.setUsername(model.getUsername());
@@ -25,6 +28,9 @@ public class VOMaker {
 	}
 	
 	public static AccountVO populateVO(Account model) {
+		if(model == null)
+			return null;
+		
 		AccountVO vo = new AccountVO();
 		vo.setId(model.getId());
 		if(model.getAmount() != null)
