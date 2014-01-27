@@ -43,7 +43,7 @@ public class UserAction extends ActionSupport {
 	public String getBalance() throws Exception {
 		user.getAccount().setAmount(systemService.getBalance(user.getAccount().getId()));
 		
-		message = "$" + new BigDecimal(user.getAccount().getAmount()).setScale(2).toString();
+		message = "$" + new BigDecimal(user.getAccount().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
 		return SUCCESS;
 	}
 }

@@ -2,10 +2,9 @@ package com.cd.view.action;
 
 import org.junit.runner.RunWith;
 
-import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features/user")
+@Cucumber.Options(features = "classpath:features/user")
 public class UserActionAcceptTest {
 }

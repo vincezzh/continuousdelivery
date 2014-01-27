@@ -1,3 +1,4 @@
+@txn
 Feature: Deposit and Withdraw Money
 
 	Scenario: Deposit money

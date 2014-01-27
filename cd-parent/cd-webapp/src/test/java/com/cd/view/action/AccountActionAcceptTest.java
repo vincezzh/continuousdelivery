@@ -2,10 +2,9 @@ package com.cd.view.action;
 
 import org.junit.runner.RunWith;
 
-import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features/account")
+@Cucumber.Options(features = "classpath:features/account", glue = {"com.cd.view.action", "cucumber.api.spring"})
 public class AccountActionAcceptTest {
 }

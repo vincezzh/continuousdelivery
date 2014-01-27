@@ -10,22 +10,27 @@ import org.springframework.test.context.ContextConfiguration;
 import com.cd.view.action.vo.UserVO;
 
 import cucumber.api.DataTable;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-@ContextConfiguration("classpath:spring-struts.xml")
+@ContextConfiguration("classpath:cucumber.xml")
 public class LoginSteps {
 	@Autowired
 	private UserAction userAction;
 	private String result;
 	
-	@Given("^My username is \"([^\"]*)\" and password is \"([^\"]*)\"$")
-	public void My_username_is_and_password_is(String arg1, String arg2) throws Throwable {
+	@Given("^My username is \"([^\"]*)\"$")
+	public void My_username_is_and_password_is(String arg1) throws Throwable {
 		UserVO user = new UserVO();
 		user.setUsername(arg1);
-		user.setPassword(arg2);
 		userAction.setUser(user);
+	}
+	
+	@And("^password is \"([^\"]*)\"$")
+	public void password_is(String arg1) throws Throwable {
+		userAction.getUser().setPassword(arg1);
 	}
 	
 	@Given("^This is my username and password:$")
