@@ -55,6 +55,6 @@ public class UserActionTest extends StrutsSpringJUnit4TestCase<UserAction> {
 
 		String result = proxy.execute();
 		assertEquals("success", result);
-		assertEquals("$50.0", userAction.getMessage());
+		assertEquals("$50.00", userAction.getMessage());
 	}
 }

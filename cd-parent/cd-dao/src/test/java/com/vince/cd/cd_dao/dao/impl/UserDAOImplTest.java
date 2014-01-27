@@ -35,6 +35,6 @@ public class UserDAOImplTest {
 		UserDTO userDetail = userDAO.getDetail("cdtester");
 		assertEquals("cdtester", userDetail.getUsername());
 		assertEquals(12345, userDetail.getAccount().getId().intValue());
-		assertEquals(0, Double.valueOf(userDetail.getAccount().getAmount()).compareTo(100.0));
+		assertEquals(0, Double.valueOf(userDetail.getAccount().getAmount()).compareTo(240.2));
 	}
 }
