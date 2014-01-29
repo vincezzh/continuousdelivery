@@ -6,5 +6,6 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @Cucumber.Options(features = "classpath:features/account", glue = {"com.cd.view.action", "cucumber.api.spring"})
+//@CucumberOptions(features = "classpath:features/account", glue = {"com.cd.view.action", "cucumber.api.spring"}, format={"pretty", "html:target/cucumber", "json:target/cucumber/cucumber.json"})
 public class AccountActionAcceptTest {
 }
