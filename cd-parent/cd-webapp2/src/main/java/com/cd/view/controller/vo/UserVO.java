@@ -1,5 +1,9 @@
 package com.cd.view.controller.vo;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
+import com.vince.cd.model.User;
+
 public class UserVO {
 	private String username;
 	private String password;
@@ -23,4 +27,13 @@ public class UserVO {
 		this.account = account;
 	}
 
+	@Override
+    public boolean equals(Object obj) {
+		if (obj != null && obj instanceof User) {
+			UserVO user = (UserVO) obj;
+            return new EqualsBuilder().append(getUsername(), user.getUsername())
+            							.isEquals();
+        }
+        return false;
+    }
 }

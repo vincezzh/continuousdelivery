@@ -25,6 +25,7 @@ public class UserController {
     public ModelAndView login(UserVO user) throws Exception {
 		UserVO finalUser = VOMaker.populateVO(systemService.login(VOMaker.populateModel(user)));
         ModelAndView mav = new ModelAndView("login");
+        mav.addObject("user", finalUser);
         mav.addObject("message", finalUser.getUsername() + " login Successful");
         return mav;
     }
